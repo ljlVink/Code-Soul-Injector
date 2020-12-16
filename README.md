@@ -1,4 +1,4 @@
-# Code-Soul-Injector
+# Code-Soul-Injector3.0已经成功发布
 代码混淆器
 举个例子
 ```cpp
