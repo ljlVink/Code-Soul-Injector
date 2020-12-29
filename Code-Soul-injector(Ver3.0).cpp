@@ -39,9 +39,12 @@ void injectingSoul(){
     }
     cout<<" */";
 }
-int telljing;
-int main(){
+int main(int argc,char **argv){
     srand(time(0));
+    if(argc!=2){
+        cout<<"Error\nno input files\n";
+        exit(0);
+    }
     cerr<<"Put the code here\nDo Not leave note like"<<'"'<<"//"<<'"'<<endl;
     cerr<<"control-z to stop\n";
     freopen("codesouledout.cpp","w",stdout);
@@ -49,11 +52,10 @@ int main(){
     while(getline(cin,d[cnt]))cnt++;
     for(int i=0;i<cnt;i++){
         int sz=d[i].size();
-        a=1,kg=0,telljing=0;
+        a=1,kg=0,jing=0;
         for(int j=0;j<sz;j++){
-            if(d[i][j]=='#'){cout<<endl;telljing=1;}
-			if(telljing!=1){
-				if(d[i][j]==h||d[i][j]=='"'){
+            if(d[i][j]=='#'){jing=1;}
+            if(d[i][j]==h||d[i][j]=='"'){
                 a=0;kg=1;
             }
             if(d[i][j]==' '){
@@ -66,11 +68,10 @@ int main(){
                 cout<<d[i][j];
                 continue;
             }
-			}
-
             cout<<d[i][j];
         }
-        if(telljing)cout<<endl;
+        if(jing==1){
+            cout<<endl;
+        }
     }
-    return 0;
 }
