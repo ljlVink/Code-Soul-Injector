@@ -41,10 +41,6 @@ void injectingSoul(){
 }
 int main(int argc,char **argv){
     srand(time(0));
-    if(argc!=2){
-        cout<<"Error\nno input files\n";
-        exit(0);
-    }
     cerr<<"Put the code here\nDo Not leave note like"<<'"'<<"//"<<'"'<<endl;
     cerr<<"control-z to stop\n";
     freopen("codesouledout.cpp","w",stdout);
