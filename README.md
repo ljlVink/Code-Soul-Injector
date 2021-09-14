@@ -1,6 +1,4 @@
-# Code-Soul-Injector3.0已经成功发布
-# 补锅了，
-# 经测试，V3的代码量非常非常大的时候还会有问题
+# Code-Soul-Injector4.0beta
 代码混淆器
 举个例子
 ```cpp
