@@ -14,8 +14,8 @@ string guanjianzi[500]={"bool","true","false","char","int","double","long","sign
 						"cin","cout","scanf","string","std","endl","cerr","freopen","stdin","stdout",
 						"getline","srand","time","stack","vector","queue","priority_queue","greater","less","max",
 						"min","sort",""};
-string chars1[500]={";","\\(","\\)","\\*","\\&","\\^","\\~","\\[","\\]","\\{","\\}","\\,","\\+\\+","\\?","-=","\\+=","\\/"};
-string chars[500]={";","(",")","*","&","^","~","[","]","{","}",",","++","?","-=","+=","/"};//16
+string chars1[500]={";","\\(","\\)","\\*","\\^","\\~","\\[","\\]","\\{","\\}","\\,","\\+\\+","\\?","-=","\\+=","\\/"};
+string chars[500]={";","(",")","*","^","~","[","]","{","}",",","++","?","-=","+=","/"};//16
 
 string aa1[500]={" _oo0o00oO0oo00 "," _oOo0OOOOOoo0 "," _OO0OOoo0o0O0 ",
 				" _O00oO0OOO00ooO "," _oOoOooo0 "," _0OoO0ooO0o ",
@@ -61,7 +61,6 @@ void injectingSoul(){
     }
     cout<<" */";
 }
-
 string  replaceSpace(string str,string pattern,string fmt) {
 	string pattern1;
 	pattern1+="\\b";
@@ -87,7 +86,7 @@ void make(){
 	for(int i=0;i<62;i++){
 		cout<<"#define "<<aa[i]<<" "<<guanjianzi[i]<<endl;
 	}
-	for(int i=0;i<17;i++){
+	for(int i=0;i<16;i++){
 		cout<<"#define"<<aa1[i]<<" "<<chars[i]<<endl;
 	}
 }
@@ -99,7 +98,7 @@ int main(int argc,char * * argv){
     make();
     int cnt=0;
     while(getline(cin,d[cnt])){
-    	int sz=62,szc=17;
+    	int sz=62,szc=16;
     	for(int i=0;i<sz;i++){
     		
 			d[cnt]=replaceSpace(d[cnt],guanjianzi[i],aa[i]);
@@ -111,19 +110,28 @@ int main(int argc,char * * argv){
 	}
     for(int i=0;i<cnt;i++){
         int sz=d[i].size();
-        a=1,kg=0,jing=0;
+        a=1,kg=0,jing=0;int linecnt=0;
         for(int j=0;j<sz;j++){
+        	
             if(d[i][j]=='#'){jing=1;}
             if(d[i][j]==h||d[i][j]=='"'){
                 a=0;kg=1;
             }
             else if(d[i][j]==' '){
                 if(a==0&&kg==1){cout<<d[i][j];}
-                if(a==1)injectingSoul();
+                if(a==1){
+                	if(linecnt==3){
+                		cout<<"\n";
+                		linecnt=0;
+					}
+					else {
+						linecnt++;
+						cout<<" ";
+					}
+				}//injectingSoul();
                 continue;
             }
             else if(d[i][j]=='{'||d[i][j]=='}'||d[i][j]=='('||d[i][j]==')'){
-                if(a==1)injectingSoul();
                 cout<<d[i][j];
                 continue;
             }
@@ -132,7 +140,6 @@ int main(int argc,char * * argv){
         if(jing==1){
             cout<<endl;
         }
-        
     }
     return 0;
 }
