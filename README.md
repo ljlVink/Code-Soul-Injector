@@ -1,5 +1,27 @@
 # Code-Soul-Injector4.0beta
 
+请先把注释都删干净
+对于#define 建议都放在前面
+
+对
+```cpp
+#include<babaaba.h>
+#define ......
+#define .......
+#define ........
+#define .........
+```
+加密后会产生错误
+```cpp
+#include<babaaba.h>
+#define ......
+#define .......
+#define ........
+
+using namespace std;
+#define .........
+
+```
 
 
 代码混淆器
